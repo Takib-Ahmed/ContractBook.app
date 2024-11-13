@@ -92,7 +92,7 @@ Contract Management
             >
               {value.labelname}
             </label>
-            <div className="mt-2">
+            <div className="mt-2 forminputparent">
               {(
                 <input
                   value={
@@ -108,7 +108,7 @@ Contract Management
                   id={value.name_id}
                   autoComplete="off"
                   placeholder={value.placeholder}
-              required
+              required min={0} 
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6 contractform"
                 />
               )}
@@ -135,11 +135,16 @@ Contract Management
       
   
         const hasValue = Array.from(Contractform).some((e) => e.value !== '');
-if(hasValue){
+        const ISvalid = Array.from(Contractform).some((e) =>  e.checkValidity());
+    
+if(hasValue & ISvalid){
   Contractform.forEach((e)=> e.value= '')
   setContractlist([...Contractlist, formdata]);
-  setformdata({...formdata,id:Date.now()})
-  console.log(formdata)
+  setformdata({...formdata,id:Date.now()}); 
+ setTimeout(() => {
+  setformdata({})
+ }, 1000);
+
 }
        
 

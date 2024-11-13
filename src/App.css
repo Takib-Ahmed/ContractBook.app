@@ -4,3 +4,20 @@
     display: none;
 }
   }
+
+
+
+
+
+
+    .forminputparent input:invalid:focus:not(:placeholder-shown) {
+      --tw-ring-opacity: 1;
+      --tw-ring-color: red;
+    }
+    
+
+
+
+  
+
+  
