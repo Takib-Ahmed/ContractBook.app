@@ -124,11 +124,14 @@ Contract Management
           className="mt-6 rounded-md bg-teal-600 px-8 py-2 text-sm font-semibold text-white shadow-sm hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600 w-full"
           onClick={(e) => {
             e.preventDefault();
-            const { name,number,email } = formdata;
-      if(name.trim()!== "" && number.trim()!=='' & email.trim()!== ''){    if (IsUpdateClickable) {
+          
+            const hasValue = Array.from(Contractform).some((e) => e.value !== '');
+      if(hasValue){  
+        
+        if (IsUpdateClickable) {
         Object.keys(SelectedContract).length && Updater();
         Contractform.forEach((e)=> e.value= ''); 
-        setSelectedContract('')
+
         
       }
 
@@ -137,7 +140,7 @@ Contract Management
       else {
       
   
-        const hasValue = Array.from(Contractform).some((e) => e.value !== '');
+       
         const ISvalid = Array.from(Contractform).some((e) =>  e.checkValidity());
         const ISmailvalid = document.getElementById('email').checkValidity();
     
