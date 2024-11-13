@@ -7,7 +7,7 @@ import Header from "../components/Header";
 
 export default function Homepage(){
     const [Contractlist,setContractlist] =useState([])
-    const Contractform = document.querySelectorAll('.contractform')
+  
     const[SelectedContract,setSelectedContract] = useState({
 
     })

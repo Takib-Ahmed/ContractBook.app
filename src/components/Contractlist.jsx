@@ -34,7 +34,7 @@ setclearvalue(true)
                   <div
                     className="h-10 w-10 bg-pink-600 text-white rounded-md text-center object-center place-content-center text-base p-1"
                   >
-       <img src="/public/5837778.png" alt="" className=" invert "/>
+       <img src="/5837778.png" alt="" className=" invert "/>
                
                   </div>
                   {/* <!-- Text --> */}
@@ -57,11 +57,11 @@ setclearvalue(true)
   Clearvalue &&         <button className=" absolute right-1  " onClick={()=>{
     document.getElementById('Search').value = '' 
     setclearvalue(false)
-             }}> <img src="/public/cross2.png" alt="" className="  w-9  " /></button>
+             }}> <img src="/cross2.png" alt="" className="  w-9  " /></button>
  }
    </div>
       <button className="bg-blue-500 text-white p-2 rounded-r-full hover:bg-blue-300">
-        <i className="text-lg"><img src="/public/search-user-icon (1).png" alt=""  className=" invert "/></i>
+        <i className="text-lg"><img src="/search-user-icon (1).png" alt=""  className=" invert "/></i>
       </button>
     </div>
               </div>

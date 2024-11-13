@@ -13,7 +13,7 @@ Header(){
       >
         {/* <!-- Logo --> */}
         <div>
-          <img src="/public/logo_prev_ui.png" className="h-14 p-2" />
+          <img src="/logo_prev_ui.png" className="h-14 p-2" />
         </div>
 
         {/* <!-- Menu --> */}
