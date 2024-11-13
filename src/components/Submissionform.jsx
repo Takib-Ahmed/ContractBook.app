@@ -132,6 +132,8 @@ Contract Management
         Object.keys(SelectedContract).length && Updater();
         Contractform.forEach((e)=> e.value= ''); 
 
+  setSelectedContract({})
+
         
       }
 
