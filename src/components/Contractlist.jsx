@@ -16,8 +16,10 @@ const [Searchvalue,setSearchvalue] = useState('')
 const [Clearvalue,setclearvalue] = useState(false)
 
 const onSearch = (value)=>  {
+  const checking = document.getElementById("Search").value !== ""
 setSearchvalue(value)
-setclearvalue(true)
+checking ? setclearvalue(true)  : setclearvalue(false)
+console.log(value)
 } 
 
 
@@ -49,7 +51,7 @@ setclearvalue(true)
         type="text"
         className="  p-[0.45rem] rounded-l-full border border-gray-300 focus:border-blue-300 focus:outline-none  md:w-36 lg:w-80"
         placeholder="Search contracts..."
-        onChange={(e) => onSearch(e.target.value.toLocaleLowerCase()) 
+        onChange={(e) => e.value !== '' ? onSearch(e.target.value.toLocaleLowerCase()) : setclearvalue(false)
           
            }
          />
