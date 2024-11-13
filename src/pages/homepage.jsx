@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import ContractList from "../components/ContractList";
+import ContractBook from '../components/Contractlist'
 
 import Submissionform from "../components/Submissionform";
 import Header from "../components/Header";
@@ -49,7 +49,7 @@ setTimeout(() => {
     <div className="">
         
 
-            <ContractList  Contractlist={Contractlist}  setContractlist={setContractlist}  SelectedContract={SelectedContract} setSelectedContract={setSelectedContract}   setSelectedkey={setSelectedkey}  Selecetedkey={Selecetedkey} setisUpdateClickable={setisUpdateClickable}/>
+            <ContractBook  Contractlist={Contractlist}  setContractlist={setContractlist}  SelectedContract={SelectedContract} setSelectedContract={setSelectedContract}   setSelectedkey={setSelectedkey}  Selecetedkey={Selecetedkey} setisUpdateClickable={setisUpdateClickable}/>
 
          </div>
     </div>

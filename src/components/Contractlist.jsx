@@ -6,7 +6,7 @@ import { useState } from "react";
 import Expensesvg, { Deletesvg, Editsvg, Filtersvg, Sortsvg } from "./svgs/Expensesvg";
 import DeleteConfirmBox from "./Deleteconfirmbox";
 
-export default function ContractList({Contractlist,setContractlist,setSelectedContract,setSelectedkey,setisUpdateClickable}){
+export default function ContractBook({Contractlist,setContractlist,setSelectedContract,setSelectedkey,setisUpdateClickable}){
 
 
 
