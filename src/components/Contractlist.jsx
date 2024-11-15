@@ -64,6 +64,7 @@ console.log(value)
   Clearvalue &&         <button className=" absolute right-1  " onClick={()=>{
     document.getElementById('Search').value = '' 
     setclearvalue(false)
+    setSearchvalue('')
              }}> <img src="/cross2.png" alt="" className="  w-9  " /></button>
  }
    </div>
