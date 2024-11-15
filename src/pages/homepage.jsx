@@ -4,6 +4,7 @@ import ContractBook from '../components/Contractlist'
 
 import Submissionform from "../components/Submissionform";
 import Header from "../components/Header";
+import { useLocalStorage } from "../components/Hooks/useLocalstorage";
 
 export default function Homepage(){
     const [Contractlist,setContractlist] =useState([])
@@ -19,14 +20,15 @@ export default function Homepage(){
     })
  
  
-
+    const {setItem} = useLocalStorage('value')
      const Updater = ()=>{
     
         setUpdatedContractlist(SelectedContract)
 setisUpdateClickable(false)
 
 Contractlist[Selecetedkey]=SelectedContract;
-
+var Updatedlist  = Contractlist;
+setItem(Updatedlist);
 setTimeout(() => {
     setUpdatedContractlist({})  
 }, 1000);

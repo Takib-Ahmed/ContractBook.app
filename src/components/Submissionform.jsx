@@ -1,7 +1,7 @@
 
 /* eslint-disable react/prop-types */
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
+import { useLocalStorage } from "./Hooks/useLocalstorage";
 export default function SubmissionForm({
   setContractlist,
   Contractlist,
@@ -15,6 +15,17 @@ export default function SubmissionForm({
 }) {
  
   const Contractform = document.querySelectorAll('.contractform')
+
+const {setItem} = useLocalStorage('value')
+
+
+
+
+
+
+useEffect(() => {
+
+}, [Contractlist]);
 
 const [Message,setMessage] = useState("")
   const [sumissionlist] = useState([
@@ -125,7 +136,7 @@ Contract Management
           onClick={(e) => {
             e.preventDefault();
           
-            const hasValue = Array.from(Contractform).some((e) => e.value !== '');
+            const hasValue = Array.from(Contractform).every((e) => e.value !== '');
       if(hasValue){  
         
         if (IsUpdateClickable) {
@@ -147,13 +158,36 @@ Contract Management
         const ISmailvalid = document.getElementById('email').checkValidity();
     
 if(hasValue && ISvalid && ISmailvalid){
+ 
+  Contractform.forEach((e)=> e.value= '')
+  
 
-    Contractform.forEach((e)=> e.value= '')
-    setContractlist([...Contractlist, formdata]);
+
+ // Assuming Contractlist and setContractlist are part of your state
+
+// 1. First, update Contractlist with the new formdata
+setContractlist(prevList => {
+  const updatedList = [...prevList, formdata];
+  setItem(updatedList); // This will set the new list to item immediately after the state update
+  return updatedList;
+});
+
+  
+
+
+
+ 
+    
+ 
     setformdata({...formdata,id:Date.now()}); 
    setTimeout(() => {
     setformdata({})
+  
+   
+
    }, 1000);
+       
+ 
   }
 
 

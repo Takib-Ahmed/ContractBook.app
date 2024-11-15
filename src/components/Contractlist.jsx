@@ -2,14 +2,19 @@
 /* eslint-disable react/prop-types */
 
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Expensesvg, { Deletesvg, Editsvg, Filtersvg, Sortsvg } from "./svgs/Expensesvg";
 import DeleteConfirmBox from "./Deleteconfirmbox";
+import { useLocalStorage } from "./Hooks/useLocalstorage";
 
 export default function ContractBook({Contractlist,setContractlist,setSelectedContract,setSelectedkey,setisUpdateClickable}){
+useEffect(() => {
+  const Savedcontracts = JSON.parse(localStorage.getItem('value') || '[]');
+  setContractlist(Savedcontracts);
+}, [setContractlist]);
 
 
-
+const {setItem} = useLocalStorage('value')
 const [Showconfimrbox,setshowconfimrbox] = useState('')
 
 const [Searchvalue,setSearchvalue] = useState('')
@@ -18,7 +23,7 @@ const [Clearvalue,setclearvalue] = useState(false)
 const onSearch = (value)=>  {
   const checking = document.getElementById("Search").value !== ""
 setSearchvalue(value)
-checking ? setclearvalue(true)  : setclearvalue(false)
+checking ? setclearvalue(true)  : setclearvalue(false) && setSearchvalue('')
 console.log(value)
 } 
 
@@ -126,6 +131,7 @@ console.log(value)
                    
               
                          setContractlist(Updatedistory);
+                         setItem(Updatedistory)
                          setshowconfimrbox('')
                 }} /> }
               
