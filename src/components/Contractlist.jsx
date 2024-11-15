@@ -72,11 +72,11 @@ console.log(value)
       </button>
     </div>
               </div>
-            
+   <div className="flex flex-col-reverse">    
 {          Contractlist.filter((Contracts)=> Contracts.name.toLowerCase().includes(Searchvalue)   || Contracts.number.toLowerCase().includes(Searchvalue)  || Contracts.email.toLowerCase().includes(Searchvalue)  ).map((value,key)=>(
                 
 
-                <div className="p-4 divide-y border" key={key}>
+                <div className="p-4 divide-y border " key={key}>
               
                 {/* <!-- Row --> */}
               
@@ -139,7 +139,7 @@ console.log(value)
               ))}
              
 
-
+</div>     
   
 
 
