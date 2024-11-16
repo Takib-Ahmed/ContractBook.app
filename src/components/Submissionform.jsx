@@ -1,6 +1,6 @@
 
 /* eslint-disable react/prop-types */
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLocalStorage } from "./Hooks/useLocalstorage";
 export default function SubmissionForm({
   setContractlist,
@@ -15,13 +15,30 @@ export default function SubmissionForm({
 }) {
  
   const Contractform = document.querySelectorAll('.contractform')
-
+  const formRefs = useRef([]);
+  const Nameinput =   document.getElementById('name')
 const {setItem} = useLocalStorage('value')
 
 
+const handleKeyDown = (event, index) => {
+  if (event.key === 'Enter') {
+  if(index!==2){
+    event.preventDefault(); // Prevent default form submission
+  }
+    const nextInput = formRefs.current[index + 1];
+    if (nextInput) {
+      nextInput.focus();
+    }
+    if(index==2 && Nameinput){
+      Nameinput.focus()
+    }
+  }
+};
 
+window.onload = () =>{
 
-
+  Nameinput && Nameinput.focus()
+}
 
 useEffect(() => {
 
@@ -115,6 +132,8 @@ Contract Management
                   onChange={
                    handlechange 
                   }
+                  ref={(el) => (formRefs.current[key] = el)} // Assign ref dynamically
+          onKeyDown={(event) => handleKeyDown(event, key)}
                   type={value.inputtype}
                   name={value.name_id}
                   id={value.name_id}
